@@ -54,4 +54,35 @@ int main (void) {
     double appleCost;
     appleCost =  apple * 1.50;
     cout << appleCost << endl;
+    
+      // Calculate total cost of donuts with sales tax
+    amtDue = (regCost + fancyCost + appleCost) * 1.075;
+    cout << fixed << setprecision(2);
+    cout << " amount due " << amtDue << endl;
+
+    // Prompt the customer for how much they are paying
+    cout << "How much money is being given in payment?";
+    cin >> amtgiven;
+    cout << "Customer pays " << amtgiven << endl;
+
+    // Calculate change for the customer
+    changeDue = amtgiven - amtDue;
+    cout << "change due is " << changeDue << endl;
+
+    // Calculate number of coins customer is owed
+    coins = changeDue * 100;
+    dollars = coins / 100;
+    cout << "dollars " << dollars << endl;
+    coins = coins % 100;
+    quarters = coins / 25;
+    cout << "quarters " << quarters << endl;
+    coins = coins - (quarters * 25);
+    dimes = coins / 10;
+    cout << "dimes " << dimes << endl;
+    coins = coins - (dimes * 10);
+    nickels = coins / 5;
+    cout << "Nickels " << nickels << endl;
+    coins = coins - (nickels * 5);
+    pennies = coins / 1;
+    cout << "pennies " << pennies << endl;
 }
