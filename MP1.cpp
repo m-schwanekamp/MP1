@@ -3,6 +3,7 @@
 // therefore calculates change based on the money given by the customer.
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 int main (void) {
     double amtDue;
@@ -13,6 +14,7 @@ int main (void) {
     int dimes;
     int nickels;
     int pennies;
+    int coins;
     
     // Prompt user for the number of regular donuts being bought.
     int regular;
@@ -81,8 +83,59 @@ int main (void) {
     cout << "dimes " << dimes << endl;
     coins = coins - (dimes * 10);
     nickels = coins / 5;
-    cout << "Nickels " << nickels << endl;
+    cout << "nickels " << nickels << endl;
     coins = coins - (nickels * 5);
     pennies = coins / 1;
     cout << "pennies " << pennies << endl;
+
+    // Output for sample runs
+    cout << "Number of regular donuts ordered: ";
+    cout << regular << endl;
+    cout << "Number of fancy donuts ordered: ";
+    cout << fancy << endl;
+    cout << "Number of apple fritters ordered: ";
+    cout << apple << endl;
+    cout << "Customer owes ";
+    cout << amtDue << endl;
+    cout << "Customer pays ";
+    cout << amtgiven << endl;
+
+    // Determine the correct output of change
+    if (changeDue = 0) {
+        cout << "Exact payment received - no change owed.\n";
+    }
+    else if (changeDue > 0) {
+        cout << "Change owed is " << changeDue << " - ";
+        if (dollars = 1) {
+            cout << dollars << " dollars, ";
+        }
+        else if (dollars > 1) {
+            cout << dollars << " dollar, ";
+        }
+        if (quarters = 1) {
+            cout << quarters << " quarter, ";
+        }
+        else if (quarters > 1) {
+            cout << quarters << " quarters, ";
+        }
+        if (dimes = 1) {
+            cout << dimes << " dime, ";
+        }
+        else if (dimes > 1) {
+            cout << dimes << " dimes, ";
+        }
+        if (nickels = 1) {
+            cout << nickels << " nickel, ";
+        }
+        else if (nickels > 1) {
+            cout << nickels << " nickels, ";
+        }
+        if (pennies = 1) {
+            cout << pennies << " penny, ";
+        }
+        else if (pennies > 1) {
+            cout << pennies << " pennies." << endl;
+        }
+    }
+    return 0;
 }
