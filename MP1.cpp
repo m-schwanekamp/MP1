@@ -9,6 +9,7 @@ int main(void) {
     double amtDue;
     double amtgiven;
     double changeDue;
+    int change_due;
     int dollars;
     int quarters;
     int dimes;
@@ -62,8 +63,9 @@ int main(void) {
 
     // Calculate change for the customer.
     changeDue = amtgiven - amtDue;
+    change_due = changeDue * 1000;
     coins = changeDue * 100;
-    if ((coins % 10) >= 3) {
+    if ((change_due % 10) >= 5) {
         coins = coins + 1;
     }
     // Calculate number of coins customer is owed.
