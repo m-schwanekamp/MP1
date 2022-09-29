@@ -5,7 +5,7 @@
 #include <iostream>
 #include <iomanip>
 using namespace std;
-int main (void) {
+int main(void) {
     double amtDue;
     double amtgiven;
     double changeDue;
@@ -15,11 +15,12 @@ int main (void) {
     int nickels;
     int pennies;
     int coins;
-    
+
     // Prompt user for the number of regular donuts being bought.
     int regular;
-    cout << "How many regular donuts were bought?";
+    cout << "Number of regular donuts ordered: ";
     cin >> regular;
+    cout << endl;
 
     // Cost of regular donuts vs. number of regular donuts.
     double regDoz;
@@ -31,8 +32,9 @@ int main (void) {
 
     // Prompt user for the number of fancy donuts being bought.
     int fancy;
-    cout << "How many fancy donuts were bought?";
+    cout << "Number of fancy donuts ordered: ";
     cin >> fancy;
+    cout << endl;
 
     // Cost of fancy donuts vs. number of fancy donuts.
     double fancyDoz;
@@ -44,25 +46,33 @@ int main (void) {
 
     // Prompt user for the number of apple fritters being bought.
     int apple;
-    cout << "How many apple fritters were bought?";
+    cout << "Number of apple fritters ordered: ";
     cin >> apple;
+    cout << endl;
 
     // Cost of apple fritters vs. number of apple fritters.
     double appleCost;
-    appleCost =  apple * 1.50;
-    
-      // Calculate total cost of donuts with sales tax
+    appleCost = apple * 1.50;
+
+    // Calculate total cost of donuts with sales tax
     amtDue = (regCost + fancyCost + appleCost) * 1.075;
+    cout << fixed << setprecision(2);
+    cout << "Customer owes ";
+    cout << amtDue << endl;
 
-    // Prompt the customer for how much they are paying
-    cout << "How much money is being given in payment?";
+    // Prompt the customer for how much they are paying.
+    cout << "Customer pays ";
     cin >> amtgiven;
+    cout << endl;
 
-    // Calculate change for the customer
+    // Calculate change for the customer.
     changeDue = amtgiven - amtDue;
+    cout << fixed << setprecision(2);
+    cout << "changeDue " << changeDue << endl;
 
-    // Calculate number of coins customer is owed
+    // Calculate number of coins customer is owed.
     coins = changeDue * 100;
+    cout << "Coins is " << coins << endl;
     dollars = coins / 100;
     coins = coins % 100;
     quarters = coins / 25;
@@ -73,24 +83,14 @@ int main (void) {
     coins = coins - (nickels * 5);
     pennies = coins / 1;
 
-    // Output for sample runs
-    cout << "Number of regular donuts ordered: ";
-    cout << regular << endl;
-    cout << "Number of fancy donuts ordered: ";
-    cout << fancy << endl;
-    cout << "Number of apple fritters ordered: ";
-    cout << apple << endl;
-    cout << fixed << setprecision(2);
-    cout << "Customer owes ";
-    cout << amtDue << endl;
-    cout << "Customer pays ";
-    cout << amtgiven << endl;
-
-    // Determine the correct output of change
-    if (changeDue == 0) {
+    // Determine the correct output of change in greatest
+    // to least coin value. String outputs are changed based
+    // on the number of each coin.
+    if (coins == 0) {
         cout << "Exact payment received - no change owed.\n";
     }
-    else if (changeDue > 0) {
+
+    if (coins > 0) {
         cout << fixed << setprecision(2);
         cout << "Change owed is " << changeDue << " - ";
         if (dollars == 1) {
