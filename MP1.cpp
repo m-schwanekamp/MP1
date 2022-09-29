@@ -16,6 +16,7 @@ int main(void) {
     int nickels;
     int pennies;
     int coins;
+    int initialcoins;
 
     // Prompt user for the number of each type of donut being bought.
     int regular;
@@ -76,7 +77,7 @@ int main(void) {
             coins = (changeDue * 100) + 1;
         }
     }
-    coins = coins;
+    initialcoins = coins;
   
     // Calculate number of coins customer is owed.
     dollars = coins / 100;
@@ -92,12 +93,12 @@ int main(void) {
     // Determine the correct output of change in greatest
     // to least coin value. String output after each number
     // are changed based on the number of each coin.
-    if (coins == 0) {
+    if (initialcoins == 0) {
         cout << "Exact payment received - no change owed.\n";
         return 0;
     }
 
-    if (coins > 0) {
+    if (initialcoins > 0) {
         cout << fixed << setprecision(2);
         cout << "Change owed is $" << changeDue << " - ";
         if (dollars == 1) {
@@ -113,16 +114,23 @@ int main(void) {
             cout << quarters << " quarters, ";
         }
         if (dimes == 1) {
-            cout << dimes << " dime, ";
+            cout << dimes << " dime";
         }
         else if (dimes > 1) {
-            cout << dimes << " dimes, ";
+            cout << dimes << " dimes";
+        }
+        if (coins > 0) {
+            cout << ",";
+        }
+        else if (coins == 0) {
+            cout << ".";
         }
         if (nickels == 1) {
             cout << nickels << " nickel, ";
         }
         else if (nickels > 1) {
             cout << nickels << " nickels, ";
+
         }
         if (pennies == 1) {
             cout << pennies << " penny. ";
