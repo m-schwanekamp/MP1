@@ -67,12 +67,11 @@ int main(void) {
 
     // Calculate change for the customer.
     changeDue = amtgiven - amtDue;
-    cout << fixed << setprecision(2);
-    cout << "changeDue " << changeDue << endl;
-
-    // Calculate number of coins customer is owed.
     coins = changeDue * 100;
-    cout << "Coins is " << coins << endl;
+    if ((coins % 10) >= 3) {
+        coins = coins + 1;
+    }
+    // Calculate number of coins customer is owed.
     dollars = coins / 100;
     coins = coins % 100;
     quarters = coins / 25;
