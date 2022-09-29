@@ -25,7 +25,7 @@ int main(void) {
     int fancy;
     cout << "Number of fancy donuts ordered: ";
     cin >> fancy;
-    
+
     int apple;
     cout << "Number of apple fritters ordered: ";
     cin >> apple;
@@ -37,7 +37,7 @@ int main(void) {
     regDoz = (regular / 12) * 7.99;
     regOne = (regular % 12) * 0.75;
     regCost = regDoz + regOne;
-   
+
     // Cost of fancy donuts vs. number of fancy donuts.
     double fancyDoz;
     double fancyOne;
@@ -53,21 +53,31 @@ int main(void) {
     // Calculate total cost of donuts with sales tax.
     amtDue = (regCost + fancyCost + appleCost) * 1.075;
     cout << fixed << setprecision(2);
-    cout << "Customer owes ";
+    cout << "Customer owes $";
     cout << amtDue << endl;
 
     // Prompt the customer for how much they are paying.
-    cout << "Customer pays ";
+    cout << "Customer pays $";
     cin >> amtgiven;
     cout << endl;
 
     // Calculate change for the customer.
     changeDue = amtgiven - amtDue;
-    change_due = changeDue * 1000;
     coins = changeDue * 100;
-    if ((change_due % 10) >= 5) {
-        coins = coins + 1;
+    if (coins < 1000) {
+        change_due = changeDue * 1000;
+        if ((change_due % 10) >= 5) {
+            coins = (changeDue * 100) + 1;
+        }
     }
+    else if (coins >= 1000) {
+        change_due = changeDue * 1000;
+        if ((change_due % 10) >= 5) {
+            coins = (changeDue * 100) + 1;
+        }
+    }
+    coins = coins;
+  
     // Calculate number of coins customer is owed.
     dollars = coins / 100;
     coins = coins % 100;
@@ -84,11 +94,12 @@ int main(void) {
     // are changed based on the number of each coin.
     if (coins == 0) {
         cout << "Exact payment received - no change owed.\n";
+        return 0;
     }
 
     if (coins > 0) {
         cout << fixed << setprecision(2);
-        cout << "Change owed is " << changeDue << " - ";
+        cout << "Change owed is $" << changeDue << " - ";
         if (dollars == 1) {
             cout << dollars << " dollar, ";
         }
