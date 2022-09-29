@@ -17,7 +17,7 @@ int main(void) {
     int pennies;
     int coins;
 
-    // Prompt user for the number of donuts being bought.
+    // Prompt user for the number of each type of donut being bought.
     int regular;
     cout << "Number of regular donuts ordered: ";
     cin >> regular;
@@ -50,7 +50,7 @@ int main(void) {
     double appleCost;
     appleCost = apple * 1.50;
 
-    // Calculate total cost of donuts with sales tax
+    // Calculate total cost of donuts with sales tax.
     amtDue = (regCost + fancyCost + appleCost) * 1.075;
     cout << fixed << setprecision(2);
     cout << "Customer owes ";
@@ -80,8 +80,8 @@ int main(void) {
     pennies = coins / 1;
 
     // Determine the correct output of change in greatest
-    // to least coin value. String outputs are changed based
-    // on the number of each coin.
+    // to least coin value. String output after each number
+    // are changed based on the number of each coin.
     if (coins == 0) {
         cout << "Exact payment received - no change owed.\n";
     }
@@ -114,7 +114,7 @@ int main(void) {
             cout << nickels << " nickels, ";
         }
         if (pennies == 1) {
-            cout << pennies << " penny, ";
+            cout << pennies << " penny. ";
         }
         else if (pennies > 1) {
             cout << pennies << " pennies." << endl;
