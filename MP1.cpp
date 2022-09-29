@@ -16,11 +16,18 @@ int main(void) {
     int pennies;
     int coins;
 
-    // Prompt user for the number of regular donuts being bought.
+    // Prompt user for the number of donuts being bought.
     int regular;
     cout << "Number of regular donuts ordered: ";
     cin >> regular;
-    cout << endl;
+
+    int fancy;
+    cout << "Number of fancy donuts ordered: ";
+    cin >> fancy;
+    
+    int apple;
+    cout << "Number of apple fritters ordered: ";
+    cin >> apple;
 
     // Cost of regular donuts vs. number of regular donuts.
     double regDoz;
@@ -29,13 +36,7 @@ int main(void) {
     regDoz = (regular / 12) * 7.99;
     regOne = (regular % 12) * 0.75;
     regCost = regDoz + regOne;
-
-    // Prompt user for the number of fancy donuts being bought.
-    int fancy;
-    cout << "Number of fancy donuts ordered: ";
-    cin >> fancy;
-    cout << endl;
-
+   
     // Cost of fancy donuts vs. number of fancy donuts.
     double fancyDoz;
     double fancyOne;
@@ -43,12 +44,6 @@ int main(void) {
     fancyDoz = (fancy / 12) * 8.49;
     fancyOne = (fancy % 12) * 0.85;
     fancyCost = fancyDoz + fancyOne;
-
-    // Prompt user for the number of apple fritters being bought.
-    int apple;
-    cout << "Number of apple fritters ordered: ";
-    cin >> apple;
-    cout << endl;
 
     // Cost of apple fritters vs. number of apple fritters.
     double appleCost;
